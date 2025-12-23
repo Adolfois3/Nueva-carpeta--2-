@@ -36,16 +36,35 @@
             }
 
 
-            output.forEach((num, index) => {
+
+           output.forEach((num, index) => {
                 setTimeout(() => {
-                    const div = document.createElement('div');
-                    div.className = index === 0 ? 'result-ball winner' : 'result-ball';
-                    div.id = index === 0 ? 'main-winner' : '';
-                    div.innerText = num;
-                    resultsDiv.appendChild(div);
+                    // 1. Creamos un CONTENEDOR vertical (Wrapper)
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'result-wrapper';
+
+                    // 2. Creamos el TEXTO (Ganador #X)
+                    const label = document.createElement('div');
+                    label.innerText = `GANADOR #${index + 1}`;
+                    // Si es el primero, le damos estilo especial, si no, estilo normal
+                    label.className = index === 0 ? 'winner-label first-place-label' : 'winner-label';
+
+                    // 3. Creamos la BOLA (El número)
+                    const ball = document.createElement('div');
+                    ball.className = index === 0 ? 'result-ball winner' : 'result-ball';
+                    ball.id = index === 0 ? 'main-winner' : ''; 
+                    ball.innerText = num;
+
+                    wrapper.appendChild(label);
+                    wrapper.appendChild(ball);
+
+                    resultsDiv.appendChild(wrapper);
+
+
                     if (index === output.length - 1) {
                         triggerCelebration();
                     }
+
                 }, index * 300); 
             });
         }

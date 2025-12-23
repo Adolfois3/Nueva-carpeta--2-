@@ -114,6 +114,30 @@
             width: 100%; /* Force break line for main winner */
             border-radius: 12px;
         }
+        .result-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    animation: popIn 0.3s ease-out backwards;
+}
+
+/* Estilo para el texto "GANADOR #1" */
+.winner-label {
+    font-size: 0.8rem;
+    color: #94a3b8; /* Gris claro */
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* El primer ganador (el trucado) tendrá el texto dorado */
+.first-place-label {
+    color: #fbbf24; /* Dorado */
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
 
         /* Loading Animation */
         .loader {
